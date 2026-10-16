@@ -35,12 +35,20 @@ void zero_matrix(int n, double* matrix) {
     for (size_t i = 0; i < length * length; i++) {
         matrix[i] = 0.0;
     }
-
-    return;
 }
 
 void identity_matrix(int n, double* matrix) {
-    return;
+    if (n <= 0 || matrix == NULL) {
+        return;
+    }
+
+    zero_matrix(n, matrix);
+
+    size_t length = (size_t)n;
+
+    for (size_t i = 0; i < length; i++) {
+        matrix[i * length + i] = 1.0;
+    }
 }
 
 void random_matrix(int n, double* matrix) {
